@@ -39,13 +39,47 @@
     }
     return true;
   }
+  function joined(hay) { return bits(hay).join(""); }
+  function glue(hay, qws) {
+    var q = qws.join("");
+    if (q.length < 3) return -1;
+    var at = joined(hay).indexOf(q);
+    if (at < 0) return -1;
+    return at === 0 ? 0 : 1;
+  }
+  function bag(hay, qws) {
+    if (qws.length < 2) return false;
+    var hw = bits(hay);
+    for (var k = 0; k < qws.length; k++) {
+      var ok = false;
+      for (var i = 0; i < hw.length; i++) if (hw[i].indexOf(qws[k]) === 0) { ok = true; break; }
+      if (!ok) return false;
+    }
+    return true;
+  }
+  function head(hay, qws) {
+    if (qws.length < 2) return false;
+    var hw = bits(hay).slice(0, qws.length + 2);
+    for (var k = 0; k < qws.length; k++) {
+      var ok = false;
+      for (var i = 0; i < hw.length; i++) if (hw[i].indexOf(qws[k]) === 0) { ok = true; break; }
+      if (!ok) return false;
+    }
+    return true;
+  }
   function score(row, qws) {
-    if (starts(row[3], qws) || starts(row[4], qws)) return 0;
-    if (starts(row[5], qws)) return 1;
-    if (contains(row[4], qws)) return 2;
-    if (contains(row[3], qws)) return 3;
-    if (contains(row[5], qws)) return 4;
-    return -1;
+    var best = 9;
+    function take(n) { if (n >= 0 && n < best) best = n; }
+    if (starts(row[3], qws) || starts(row[4], qws)) take(0);
+    if (head(row[3], qws) || head(row[4], qws)) take(0);
+    if (glue(row[3], qws) === 0 || glue(row[4], qws) === 0) take(0);
+    if (starts(row[5], qws) || glue(row[5], qws) === 0) take(1);
+    if (contains(row[4], qws) || glue(row[4], qws) === 1) take(2);
+    if (contains(row[3], qws) || glue(row[3], qws) === 1) take(3);
+    if (contains(row[5], qws) || glue(row[5], qws) === 1) take(4);
+    if (bag(row[3], qws) || bag(row[4], qws)) take(5);
+    if (bag(row[5], qws)) take(6);
+    return best === 9 ? -1 : best;
   }
   function kind(g) { return g === "s" ? "صحابي" : g === "t" ? "تابعي" : ""; }
   function clip(s) { return s.length > 90 ? s.slice(0, 90) + "…" : s; }
@@ -100,7 +134,7 @@
     if (q.length < 2) { clear(); return; }
     if (!rows) {
       render([], "…");
-      fetch("/ruwat/assets/find.json").then(function (r) { return r.json(); }).then(function (data) {
+      fetch("/ruwat/assets/find.json?v=2").then(function (r) { return r.json(); }).then(function (data) {
         rows = data;
         run(fold(input.value));
       }).catch(function () { render([], "تعذر البحث"); });
