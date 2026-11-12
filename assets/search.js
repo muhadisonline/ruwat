@@ -16,7 +16,8 @@
     list.forEach(function (row) {
       var link = document.createElement("a");
       link.className = "entry";
-      link.href = BASE + "/" + row[0] + "/";
+      var bucket = String(Math.floor(row[0] / 100)).padStart(3, "0");
+      link.href = BASE + "/n/" + bucket + "/" + row[0] + "/";
       var name = document.createElement("span");
       name.className = "ttl";
       name.textContent = row[1];
