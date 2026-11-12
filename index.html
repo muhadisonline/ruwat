@@ -14,20 +14,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500&display=swap">
-<link rel="stylesheet" href="/ruwat/assets/site.css?v=2">
+<link rel="stylesheet" href="/ruwat/assets/site.css?v=3">
 <script>try{var n=localStorage.getItem("ruwat-size");if(n)document.documentElement.setAttribute("data-size",n)}catch(e){}</script>
 </head>
 <body>
-<header><div class="wrap bar"><a class="brand" href="/ruwat/"><span class="mark">ر</span><span>الرواة</span></a><div class="set"><button class="gear" type="button" id="gear" aria-label="حجم الخط" aria-expanded="false">أ</button>
+<header><div class="wrap bar"><a class="brand" href="/ruwat/"><span class="mark">ر</span><span>الرواة</span></a><form class="find" role="search" onsubmit="return false"><label class="sr" for="findq">بحث</label><input id="findq" class="find-q" placeholder="ابحث عن راو" autocomplete="off" enterkeyhint="search"><div class="find-out" hidden></div></form><div class="set"><button class="gear" type="button" id="gear" aria-label="حجم الخط" aria-expanded="false">أ</button>
 <div class="set-panel" id="set-panel" hidden><span>حجم الخط</span><button type="button" id="size-down" aria-label="أصغر">−</button><button type="button" id="size-up" aria-label="أكبر">+</button></div></div></div></header>
 <main class="wrap"><h1>الرواة</h1>
 <p class="meta">796 من الصحابة، و2632 من التابعين، و14870 من سائر الرواة. المجموع 18298. من تقريب التهذيب، دون ترجمة مضافة.</p>
-<form role="search" onsubmit="return false"><label class="sr" for="q">بحث</label><input id="q" placeholder="اسم الراوي" autocomplete="off"></form>
 <div class="hits" id="out"></div>
 <nav class="letters" aria-label="الحروف"><a href="/ruwat/harf/alif/"><b>ا</b><span>4522</span></a><a href="/ruwat/harf/ba/"><b>ب</b><span>318</span></a><a href="/ruwat/harf/ta/"><b>ت</b><span>41</span></a><a href="/ruwat/harf/tha/"><b>ث</b><span>87</span></a><a href="/ruwat/harf/jim/"><b>ج</b><span>324</span></a><a href="/ruwat/harf/ha/"><b>ح</b><span>712</span></a><a href="/ruwat/harf/kha/"><b>خ</b><span>316</span></a><a href="/ruwat/harf/dal/"><b>د</b><span>142</span></a><a href="/ruwat/harf/dhal/"><b>ذ</b><span>27</span></a><a href="/ruwat/harf/ra/"><b>ر</b><span>216</span></a><a href="/ruwat/harf/zay/"><b>ز</b><span>356</span></a><a href="/ruwat/harf/sin/"><b>س</b><span>1083</span></a><a href="/ruwat/harf/shin/"><b>ش</b><span>201</span></a><a href="/ruwat/harf/sad/"><b>ص</b><span>224</span></a><a href="/ruwat/harf/dad/"><b>ض</b><span>27</span></a><a href="/ruwat/harf/tah/"><b>ط</b><span>111</span></a><a href="/ruwat/harf/zah/"><b>ظ</b><span>7</span></a><a href="/ruwat/harf/ayn/"><b>ع</b><span>4501</span></a><a href="/ruwat/harf/ghayn/"><b>غ</b><span>75</span></a><a href="/ruwat/harf/fa/"><b>ف</b><span>112</span></a><a href="/ruwat/harf/qaf/"><b>ق</b><span>184</span></a><a href="/ruwat/harf/kaf/"><b>ك</b><span>144</span></a><a href="/ruwat/harf/lam/"><b>ل</b><span>45</span></a><a href="/ruwat/harf/mim/"><b>م</b><span>3074</span></a><a href="/ruwat/harf/nun/"><b>ن</b><span>229</span></a><a href="/ruwat/harf/he/"><b>ه</b><span>277</span></a><a href="/ruwat/harf/waw/"><b>و</b><span>121</span></a><a href="/ruwat/harf/ya/"><b>ي</b><span>822</span></a></nav>
 <p class="note">من لم يكن صحابيًا أو تابعيًا لم يُكتب له ذلك.</p></main>
 <footer><div class="wrap foot"><p>من تقريب التهذيب. نُقل كما ورد، دون زيادة.</p></div></footer>
 <script>(function(){var key="ruwat-size";function get(){var n=Number(localStorage.getItem(key)||"0");return n>=0&&n<=3?n:0}function apply(n){document.documentElement.setAttribute("data-size",String(n));localStorage.setItem(key,String(n))}var gear=document.getElementById("gear"),panel=document.getElementById("set-panel");if(!gear)return;gear.addEventListener("click",function(e){e.stopPropagation();panel.hidden=!panel.hidden;gear.setAttribute("aria-expanded",String(!panel.hidden))});document.addEventListener("click",function(){panel.hidden=true;gear.setAttribute("aria-expanded","false")});panel.addEventListener("click",function(e){e.stopPropagation()});document.getElementById("size-down").addEventListener("click",function(){apply(Math.max(0,get()-1))});document.getElementById("size-up").addEventListener("click",function(){apply(Math.min(3,get()+1))})})();</script>
-<script src="/ruwat/assets/search.js"></script>
+
+<script src="/ruwat/assets/search.js?v=3"></script>
 </body>
 </html>
