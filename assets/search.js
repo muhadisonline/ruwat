@@ -99,7 +99,7 @@
     list.forEach(function (row) {
       var link = document.createElement("a");
       link.className = "entry";
-      link.href = "/ruwat/n/" + String(Math.floor(row[0] / 100)).padStart(3, "0") + "/" + row[0] + "/";
+      link.href = "/n/" + String(Math.floor(row[0] / 100)).padStart(3, "0") + "/" + row[0] + "/";
       var name = document.createElement("span");
       name.className = "ttl";
       name.textContent = clip(row[1]);
@@ -134,7 +134,7 @@
     if (q.length < 2) { clear(); return; }
     if (!rows) {
       render([], "…");
-      fetch("/ruwat/assets/find.json?v=2").then(function (r) { return r.json(); }).then(function (data) {
+      fetch("/assets/find.json?v=2").then(function (r) { return r.json(); }).then(function (data) {
         rows = data;
         run(fold(input.value));
       }).catch(function () { render([], "تعذر البحث"); });
