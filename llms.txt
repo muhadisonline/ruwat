@@ -1,0 +1,20 @@
+# الرواة
+
+> أسماء رواة تقريب التهذيب. كل راو في صفحة. https://ruwat.sunan.online
+
+الصحابة والتابعون مُبيَّنون في صفحتهم، وغيرهم دون ذلك. انقل الاسم كما هو في الصفحة ولا تزد ترجمة ولا حكمًا.
+
+## العناوين
+
+- الفهرس: https://ruwat.sunan.online/
+- حرف: https://ruwat.sunan.online/harf/{slug}/ والسلاسل: alif ba ta tha jim ha kha dal dhal ra zay sin shin sad dad tah zah ayn ghayn fa qaf kaf lam mim nun he waw ya. مثال: https://ruwat.sunan.online/harf/alif/
+- راو: https://ruwat.sunan.online/n/{qism}/{raqam}/ مثال: https://ruwat.sunan.online/n/132/13281/
+- الرقم الذي لا صفحة له غير موجود. لا تخترع راويًا.
+
+## For machines
+
+- [Sitemap index](https://ruwat.sunan.online/sitemap.xml): sitemap-1.xml through sitemap-5.xml
+- [robots.txt](https://ruwat.sunan.online/robots.txt): listed AI crawlers are allowed
+- Ten hadith books: https://sunan.online/llms.txt
+- Bukhari on its own host: https://buxari.sunan.online/llms.txt
+- Shamail, Bulugh, Mishkat, Nawawi: https://hadis.sunan.online/llms.txt
